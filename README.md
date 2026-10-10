@@ -17,7 +17,7 @@ By instantiating model graphs directly on PyTorch's `meta` device and materializ
 
 ---
 
-## ⚠️ Architectural Scope: Dense Models Only
+## Architectural Scope: Dense Models Only
 
 This benchmark utility is explicitly designed for **dense autoregressive transformer architectures** (e.g., LLaMA 2/3/3.1/3.2, Mistral, Qwen 2/2.5 Dense, Phi-2/3/3.5, Starcoder).
 
@@ -109,19 +109,6 @@ python llm_tps_benchmark_2.py --model meta-llama/Llama-3.1-8B-Instruct --quant 4
 
 ```
 
-### 4. Attention Backend Comparison: SDPA vs. FlashAttention-2
-
-Compare PyTorch's native Scaled Dot-Product Attention (SDPA) against compiled FlashAttention-2:
-
-```bash
-# Run with SDPA
-python llm_tps_benchmark_2.py --model meta-llama/Llama-3.2-1B --attn sdpa
-
-# Run with FlashAttention-2
-python llm_tps_benchmark_2.py --model meta-llama/Llama-3.2-1B --attn flash_attention_2
-
-```
-
 ---
 
 ## Understanding the Metrics
@@ -210,7 +197,7 @@ Step Latency: Min: 33.12 ms | Median: 35.80 ms | P95: 84.10 ms | Max: 147.20 ms
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
 | `--model` | `str` | `meta-llama/Llama-3.2-3B-Instruct` | Hugging Face model repository ID. |
-| `--attn` | `str` | `sdpa` | Attention backend: `sdpa`, `flash_attention_2`, or `eager`. |
+| `--attn` | `str` | `sdpa` | Attention backend: `sdpa` or `eager`. |
 | `--cache` | `str` | `static` | KV Cache buffer strategy: `static` or `dynamic`. |
 | `--quant` | `str` | `none` | Core model quantization: `none`, `8bit`, or `4bit` (NF4). |
 | `--quant-lm-head` | `flag` | `False` | Enable quantization on the `lm_head` projection. |
