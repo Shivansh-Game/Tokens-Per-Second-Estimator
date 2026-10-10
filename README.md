@@ -1,4 +1,4 @@
-# LLM Direct-to-VRAM Throughput & Memory Benchmark
+# Estimated LLM Throughput & Memory Benchmark
 
 A zero-checkpoint, hardware-level CLI benchmarking utility to measure **Time-To-First-Token (TTFT)**, **Prefill Throughput**, **Time-Per-Output-Token (TPOT)**, **Decode Throughput**, and **CUDA Allocator Memory Fragmentation** directly on GPU VRAM without downloading model weights.
 
